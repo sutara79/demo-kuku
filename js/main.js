@@ -2,7 +2,7 @@ $(function() {
   kukuBasic();
   kukuHeading();
   kukuFlexible(5, 12);
-  kukuHighlight();
+  kukuHighlight(4, 15);
 });
 
 /**
@@ -126,7 +126,7 @@ function kukuHighlight(
 
     // 行・列の座標に変換
     let idx_row = idx_tr - 1;
-    let idx_col = idx_td - (idx_row * 9);
+    let idx_col = idx_td - (idx_row * orig_col);
     console.log(idx_row + ':' + idx_col);
 
     // ハイライトをリセット
