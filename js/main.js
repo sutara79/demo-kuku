@@ -2,7 +2,7 @@ $(function() {
   kukuBasic();
   kukuHeading();
   kukuFlexible(5, 12);
-  kukuHighlight(4, 15);
+  kukuHighlight();
 });
 
 /**
@@ -134,16 +134,12 @@ function kukuHighlight(
 
     // 行をハイライト
     $(all_tr).eq(idx_tr).children().each(function(idx) {
-      // if (idx < idx_col + 1) {
-        $(this).addClass(hi_line);
-      // }
+      $(this).addClass(hi_line);
     });
 
     // 列をハイライト
     $(all_tr).each(function(idx) {
-      // if (idx < idx_row + 1) {
-        $(this).children().eq(idx_col + 1).addClass(hi_line);
-      // }
+      $(this).children().eq(idx_col + 1).addClass(hi_line);
     });
 
     // セルをハイライト
