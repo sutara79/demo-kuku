@@ -1,0 +1,25 @@
+table,
+th,
+td {
+  border: 1px solid #666;
+  border-collapse: collapse;
+}
+table {
+  margin-bottom: 1em;
+}
+th {
+  background-color: #ddd;
+}
+th,
+td {
+  height: 2em;
+  min-width: 2em;
+  text-align: right;
+}
+.highlight-td {
+  background-color: #284;
+  color: #fff;
+}
+.highlight-line {
+  background-color: #bfc;
+}
