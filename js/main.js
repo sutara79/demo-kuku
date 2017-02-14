@@ -112,33 +112,22 @@ function kukuHighlight(
     }
   }
   // ハイライト機能
+  $(table).find('td').on('mouseover', function() {
+    // <tr>を格納
+    let all_tr = $(table).find('tr');
 
-  // 省略用
-  let all_td = $(table).find('td');
-  let all_tr = $(table).find('tr');
-
-  // 表内をハイライトする
-  $(all_td).on('mouseover', function() {
-
-    // tdとして、trとしての順番をそれぞれ取得
-    let idx_td = $(all_td).index(this);
-    let idx_tr = $(all_tr).index($(all_tr).has(this));
-
-    // 行・列の座標に変換
-    let idx_row = idx_tr - 1;
-    let idx_col = idx_td - (idx_row * orig_col);
-    console.log(idx_row + ':' + idx_col);
+    // 縦横の座標を取得
+    let idx_row = $(all_tr).index($(all_tr).has(this));
+    let idx_col = $(all_tr).eq(idx_row).children('td').index(this);
 
     // ハイライトをリセット
     $(table).find('th, td').removeClass(hi_td + ' ' + hi_line);
 
     // 行をハイライト
-    $(all_tr).eq(idx_tr).children().each(function(idx) {
-      $(this).addClass(hi_line);
-    });
+    $(all_tr).eq(idx_row).children().addClass(hi_line);
 
     // 列をハイライト
-    $(all_tr).each(function(idx) {
+    $(all_tr).each(function() {
       $(this).children().eq(idx_col + 1).addClass(hi_line);
     });
 
